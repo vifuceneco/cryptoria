@@ -1,0 +1,19 @@
+{
+    "name": "Cryptoria",
+    "short_name": "Cryptoria",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#01c38d",
+    "background_color": "#01c38d",
+    "display": "standalone"
+}
