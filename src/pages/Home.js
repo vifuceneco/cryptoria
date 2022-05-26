@@ -9,7 +9,7 @@ import { addCurrencySymbol, getArrowIconByNum, formatNum, getColorByNum } from '
 
 const tableColumns = (currency) => [
   {
-    field: "name", 
+    field: "name",
     headerName: "Name",
     flex: 1,
     renderCell: ({ value, row }) => {
@@ -30,14 +30,15 @@ const tableColumns = (currency) => [
     }
   },
   {
-    field: "current_price", 
-    headerName: "Current Price", 
+    field: "current_price",
+    headerName: "Current Price",
+    renderCell: ({ value }) => `${value} ${currency}`,
     valueGetter: ({ value }) => addCurrencySymbol(formatNum(value)),
-    width: 120,
-    minWidth: 120,
+    width: 160,
+    minWidth: 160,
   },
   {
-    field: "price_change_percentage_24h", 
+    field: "price_change_percentage_24h",
     headerName: "24h %",
     renderCell: ({ value }) => (
       <Typography color={getColorByNum(value)} display="flex" alignItems="center">
@@ -48,21 +49,24 @@ const tableColumns = (currency) => [
     minWidth: 120,
   },
   {
-    field: "market_cap", 
-    headerName: "Market Cap", 
+    field: "market_cap",
+    headerName: "Market Cap",
+    renderCell: ({ value }) => `${value} ${currency}`,
     valueGetter: ({ value }) => addCurrencySymbol(formatNum(value)),
     flex: 1,
   },
   {
-    field: "circulating_supply", 
+    field: "circulating_supply",
     headerName: "Circulating Supply",
+    renderCell: ({ value }) => `${value} ${currency}`,
     valueGetter: ({ value }) => addCurrencySymbol(formatNum(value)),
     flex: 1,
   },
 ];
 
 const Home = () => {
-  const { coins, loading, currency} = useContext(CoinsContext);
+
+  const { coins, loading, currency } = useContext(CoinsContext);
 
   return (
     <Container>

@@ -8,6 +8,7 @@ const CoinsProvider = ({ children }) => {
   const [coinsData, setCoinsData] = useState([]);
 
   const getCoins = () => {
+    setLoading(true);
     fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}`)
       .then(response => response.json())
       .then(data => {
@@ -15,13 +16,13 @@ const CoinsProvider = ({ children }) => {
       })
       .finally(() => setLoading(false));
   }
-  
+
   useEffect(() => {
     getCoins();
-  }, [])
+  }, [currency]);
 
   return (
-    <CoinsContext.Provider value={{ 
+    <CoinsContext.Provider value={{
       loading,
       coins: coinsData,
       currency,
