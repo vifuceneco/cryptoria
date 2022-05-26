@@ -13,13 +13,13 @@ const CryptoCards = ({}) => {
     <>
       <Typography variant="h4" component="h3" color="secondary">Real Time Ranking</Typography>
       <Grid container spacing={2} mt={2} mb={5}>
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} sm={4}>
           <ListCard title="Trending" Icon={WhatshotRoundedIcon} list={trendingCoins}/>
         </Grid>
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} sm={4}>
           <ListCard title="Top Performants" Icon={AutoGraphIcon} list={perfCoins}/>
         </Grid>
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} sm={4}>
           <ListCard title="Worst Performants" Icon={KeyboardDoubleArrowDownIcon} list={worstCoins}/>
         </Grid>
       </Grid>
