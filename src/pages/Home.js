@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Box, Button, Chip, Container, Grid, Icon, Typography, Link as MUILink } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 
+import FavoriteButton from '../components/FavoriteButton';
 import News from '../sections/News';
 import CryptoCards from '../sections/CryptoCards';
 import { CoinsContext } from '../contexts/CoinsContext';
@@ -73,6 +74,13 @@ const tableColumns = (currency) => [
     renderCell: ({ value }) => `${value} ${currency}`,
     valueGetter: ({ value }) => addCurrencySymbol(formatNum(value)),
     flex: 1,
+  },
+  {
+    field: "id",
+    type: 'actions',
+    getActions: () => [
+      <FavoriteButton />,
+    ]
   },
 ];
 
