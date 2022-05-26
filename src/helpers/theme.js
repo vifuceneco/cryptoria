@@ -17,6 +17,9 @@ const theme = createTheme({
             main: '#696E79',
         },
     },
+    typography: {
+      fontFamily: 'Raleway, Arial',
+    },
 });
 
 export default theme;
