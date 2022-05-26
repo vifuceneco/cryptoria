@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import { Box, Chip, Container, Grid, Icon, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
+import { Box, Button, Chip, Container, Grid, Icon, Typography, Link as MUILink } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 
 import News from '../sections/News';
@@ -14,7 +15,18 @@ const tableColumns = (currency) => [
     flex: 1,
     renderCell: ({ value, row }) => {
       return (
-        <>
+        <MUILink
+          to={`/coins/${row.id}`}
+          component={Link}
+          color="inherit"
+          sx={{
+            textDecoration: 'none',
+            width: '100%',
+            height: '100%'
+          }}
+          alignItems="center"
+          display="flex"
+        >
           <Typography color="secondary" componenet="span" style={{marginRight: '.5rem'}}>
             #{row.market_cap_rank}
           </Typography>
@@ -25,7 +37,7 @@ const tableColumns = (currency) => [
           <Typography color="gray" fontWeight="bold" fontSize="small" component="span">
             {row.symbol.toUpperCase()}
           </Typography>
-        </>
+        </MUILink>
       );
     }
   },
