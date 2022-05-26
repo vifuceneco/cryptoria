@@ -242,3 +242,5 @@ export const coinsData = [
 ];
 
 export const trendingCoins = [coinsData[3], coinsData[0], coinsData[17]];
+export const perfCoins = [coinsData[0], coinsData[8], coinsData[15]];
+export const worstCoins = [coinsData[19], coinsData[6], coinsData[11]];

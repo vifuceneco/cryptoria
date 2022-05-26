@@ -5,7 +5,7 @@ import logo from '../logo.svg';
 
 export default function Header() {
     return (
-        <AppBar position="static" color="dark">
+        <AppBar position="static" color="dark" sx={{mb: 2}}>
             <Toolbar
                 sx={{
                     display: 'flex',
