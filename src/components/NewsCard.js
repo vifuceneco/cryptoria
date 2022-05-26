@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Typography, Link } from '@mui/material';
+import PropTypes from 'prop-types';
 
 import logo from '../logo.svg';
 
@@ -34,6 +35,13 @@ const NewsCard = ({ image, description, title, href }) => {
     </Link>
   );
 }
+
+NewsCard.propTypes = {
+  href: PropTypes.string.isRequired,
+  image: PropTypes.string,
+  description: PropTypes.string,
+  title: PropTypes.string,
+};
 
 NewsCard.defaultProps = {
   href: '',
