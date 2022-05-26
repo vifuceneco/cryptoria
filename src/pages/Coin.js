@@ -29,10 +29,13 @@ const Coin = () => {
 
 
   useEffect(() => {
-    setTimeout(() => {
-      setCoin(coinGeckoCoin);
-      setLoading(false);
-    }, 0);
+    setLoading(true);
+    fetch(`https://api.coingecko.com/api/v3/coins/${id}`)
+      .then(response => response.json())
+      .then(data => {
+        setCoin(data);
+      })
+      .finally(() => setLoading(false));
   }, []);
 
   return (

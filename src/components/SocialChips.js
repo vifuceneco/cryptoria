@@ -10,28 +10,37 @@ import { formatNum } from '../helpers/coins';
 
 const SocialChips = ({reddit, twitter, facebook}) => {
   return (
-    <>
-      {twitter.count && <Link href={twitter.link}>
-      <Chip sx={{mr: 1}} label={
-        <Typography display="flex" component="span" alignItems="center">
-          <Twitter fontSize="small" sx={{mr: .5}}  /> {formatNum(twitter.count)}
-        </Typography>
-      } /> 
-      </Link>}
-      {reddit.count && <Link href={reddit.link}>
-      <Chip sx={{mr: 1}} label={
-        <Typography display="flex" component="span" alignItems="center">
-          <Reddit fontSize="small" sx={{mr: .5}}  /> {formatNum(reddit.count)}
-        </Typography>
-      } /> 
-      </Link>}
-      {facebook.count && <Link href={facebook.link}>
-      <Chip label={
-        <Typography display="flex" component="span" alignItems="center">
-          <Facebook fontSize="small" sx={{mr: .5}}  /> {formatNum(facebook.count)}
-        </Typography>
-      } /> 
-      </Link>}
+    <> 
+      {(twitter.count && twitter.count > 0) 
+        ? (
+          <Link href={twitter.link}>
+            <Chip sx={{mr: 1}} label={
+              <Typography display="flex" component="span" alignItems="center">
+                <Twitter fontSize="small" sx={{mr: .5}}  /> {formatNum(twitter.count)}
+              </Typography>
+            } /> 
+          </Link>
+        ) : null }
+      {(reddit.count && reddit.count > 0)
+        ? (
+          <Link href={reddit.link}>
+            <Chip sx={{mr: 1}} label={
+              <Typography display="flex" component="span" alignItems="center">
+                <Reddit fontSize="small" sx={{mr: .5}}  /> {formatNum(reddit.count)}
+              </Typography>
+            } /> 
+          </Link>
+        ) : null }
+      { (facebook.count && facebook.count > 0) 
+        ? (
+          <Link href={facebook.link}>
+            <Chip label={
+              <Typography display="flex" component="span" alignItems="center">
+                <Facebook fontSize="small" sx={{mr: .5}}  /> {formatNum(facebook.count)}
+              </Typography>
+            } /> 
+          </Link>
+        ) : null }
     </>
   );
 }

@@ -3,6 +3,7 @@ import { AppBar, IconButton, Toolbar, Box, Typography } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import logo from "../logo.svg";
 import CurrencyChanger from './CurrencyChanger';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
 
@@ -17,17 +18,19 @@ export default function Header() {
         <IconButton size="large" edge="start" color="inherit" aria-label="menu">
           <MenuIcon />
         </IconButton>
-        <Box display="flex" alignItems="center">
-          <img
-            src={logo}
-            alt="Cryptoria"
-            width={50}
-            style={{ marginRight: "13px" }}
-          />
-          <Typography variant="h4" component="h1" color="white">
-            Cryptoria
-          </Typography>
-        </Box>
+        <Link to={'/'}>
+          <Box display="flex" alignItems="center">
+            <img
+              src={logo}
+              alt="Cryptoria"
+              width={50}
+              style={{ marginRight: "13px" }}
+              />
+            <Typography variant="h4" component="h1" color="white">
+              Cryptoria
+            </Typography>
+          </Box>
+        </Link>
         <CurrencyChanger />
       </Toolbar>
     </AppBar>

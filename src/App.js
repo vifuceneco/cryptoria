@@ -13,8 +13,8 @@ import Home from './pages/Home';
 function App() {
   return (
     <>
-      <Header/>
       <BrowserRouter>
+        <Header/>
         <Routes>
           <Route path="/">
             <Route index element={<Home />} />
