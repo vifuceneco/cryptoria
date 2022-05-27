@@ -1,11 +1,11 @@
 import React from 'react';
-import { AppBar, Toolbar, Box, Typography } from "@mui/material";
-import logo from "../logo.svg";
-import CurrencyChanger from './CurrencyChanger';
 import { Link } from 'react-router-dom';
+import { AppBar, Toolbar, Box, Typography } from "@mui/material";
+
+import CurrencyChanger from './CurrencyChanger';
+import logo from "../logo.svg";
 
 export default function Header() {
-
   return (
     <AppBar position="relative" color="dark" sx={{ mb: 2, zIndex: 20 }}>
       <Toolbar

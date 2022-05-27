@@ -1,6 +1,6 @@
 import React from 'react';
-import { Box, Typography, Link } from '@mui/material';
 import PropTypes from 'prop-types';
+import { Box, Typography, Link } from '@mui/material';
 
 import logo from '../logo.svg';
 

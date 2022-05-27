@@ -6,14 +6,14 @@ import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import CodeIcon from '@mui/icons-material/Code';
 import ArticleIcon from '@mui/icons-material/Article';
 
-import { formatNum } from '../helpers/coins';
 import Loading from '../components/Loading';
 import FavoriteButton from '../components/FavoriteButton';
 import SocialChips from '../components/SocialChips';
 import { CoinsContext } from '../contexts/CoinsContext';
+import { formatNum } from '../helpers/coins';
+import CoinLinksData from '../sections/CoinLinksData';
 import CoinPriceData from '../sections/CoinPriceData';
 import News from '../sections/News';
-import CoinLinksData from '../sections/CoinLinksData';
 
 const Coin = () => {
   const { id } = useParams();
@@ -31,7 +31,7 @@ const Coin = () => {
         setCoin(data);
       })
       .finally(() => setLoading(false));
-  }, []);
+  }, [id]);
 
   return (
     <Container>

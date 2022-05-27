@@ -1,6 +1,7 @@
 import React from 'react';
-import { Box, Button } from '@mui/material';
 import PropTypes from 'prop-types';
+import { Box, Button } from '@mui/material';
+
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import Search from '@mui/icons-material/Search';
 

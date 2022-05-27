@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-
-import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu';
-import { Link, MenuItem } from '@mui/material';
+import { Link, MenuItem, Menu, Button } from '@mui/material';
 
 const DropDown = ({ options, label }) => {
   const [anchorEl, setAnchorEl] = useState(false);

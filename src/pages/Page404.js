@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Typography } from '@mui/material';
-import { Box } from '@mui/system';
-import page404 from '../page404.svg';
+import { Button, Typography, Box } from '@mui/material';
+
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
+
+import page404 from '../page404.svg';
 
 const Page404 = () => {
   return (

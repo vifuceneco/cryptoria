@@ -1,12 +1,12 @@
 import React from "react";
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import logo from "../logo.svg";
-import { Link, Typography } from "@mui/material";
+import { Link, Typography, Box, Container } from "@mui/material";
+
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+
+import logo from "../logo.svg";
 
 const Footer = () => {
   return (

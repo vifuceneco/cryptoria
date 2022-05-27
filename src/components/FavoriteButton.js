@@ -8,11 +8,11 @@ import StarBorder from '@mui/icons-material/StarBorder';
 const FavoriteButton = ({ isFavorite, onChange }) => {
   const [active, setActive] = useState(isFavorite);
 
-  const handleChange = () => setActive(!active); 
+  const handleChange = () => setActive(!active);
 
   return (
     <IconButton color="primary" onClick={handleChange}>
-      {active 
+      {active
         ? <StarIcon />
         : <StarBorder  />
       }

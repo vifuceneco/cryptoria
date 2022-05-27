@@ -1,9 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { MenuItem, Button, Menu } from "@mui/material";
-import { CoinsContext } from '../contexts/CoinsContext';
 
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+
+import { CoinsContext } from '../contexts/CoinsContext';
 
 const CurrencyChanger = () => {
   const { currency, changeCurrency } = useContext(CoinsContext);

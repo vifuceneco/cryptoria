@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { Box, Button, Chip, Container, Grid, Icon, Typography, Link as MUILink } from '@mui/material';
+import { Box, Container, Typography, Link as MUILink } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 
 import FavoriteButton from '../components/FavoriteButton';

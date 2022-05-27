@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { Chip, Typography } from '@mui/material';
 import PropTypes from 'prop-types';
+import { Chip, Typography } from '@mui/material';
 
 import { getColorByNum } from '../helpers/coins';
 import { CoinsContext } from '../contexts/CoinsContext';
@@ -17,7 +17,7 @@ const CoinPriceData = ({ name, symbol, percentageChange, currentPrice }) => {
         ${currentPrice} {currency}
         <Chip
           sx={{letterSpacing: 1.1, fontSize: '1.2rem', borderRadius: '.25rem', ml: 2, fontWeight: 400}}
-          color={getColorByNum(percentageChange)} 
+          color={getColorByNum(percentageChange)}
           label={`${percentageChange.toFixed(2)}%`}
         />
       </Typography>

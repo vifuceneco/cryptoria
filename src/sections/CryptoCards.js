@@ -8,7 +8,7 @@ import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrow
 import ListCard from '../components/ListCard';
 import { trendingCoins, worstCoins, perfCoins } from '../helpers/mock';
 
-const CryptoCards = ({}) => {
+const CryptoCards = () => {
   return (
     <>
       <Typography variant="h4" component="h3" color="secondary">Real Time Ranking</Typography>
