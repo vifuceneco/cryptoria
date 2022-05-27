@@ -15,27 +15,27 @@ export default function Header() {
         }}
       >
         <Link to={'/'} color="white">
-          <Box display="flex" alignItems="center" color="white">
+          <Box display="flex" alignItems="center">
             <img
               src={logo}
               alt="Cryptoria"
               width={50}
-              style={{ marginRight: "13px" }}
+              style={{ marginRight: "1rem" }}
               />
             <Typography variant="h4" component="h1" color="common.white">
               Cryptoria
             </Typography>
           </Box>
         </Link>
-        <Box display="flex">
+        <Box display="flex" columnGap={5} alignItems="center">
           <Link to={'about'}>
             <Typography color="primary.main">About</Typography>
           </Link>
           <Link to={'contact'}>
             <Typography color="primary.main">Contact</Typography>
           </Link>
+          <CurrencyChanger />
         </Box>
-        <CurrencyChanger />
       </Toolbar>
     </AppBar>
   );
