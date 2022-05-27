@@ -22,12 +22,12 @@ export default function Header() {
               width={50}
               style={{ marginRight: "1rem" }}
               />
-            <Typography variant="h4" component="h1" color="common.white">
+            <Typography variant="h4" component="h1" color="common.white" mr={3}>
               Cryptoria
             </Typography>
           </Box>
         </Link>
-        <Box display="flex" columnGap={5} alignItems="center">
+        <Box display="flex" columnGap={3} alignItems="center">
           <Link to={'about'}>
             <Typography color="primary.main">About</Typography>
           </Link>
