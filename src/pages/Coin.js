@@ -1,7 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from "react-router-dom";
-import { Box, Chip, Container, Grid, Typography } from '@mui/material';
+import { Box, Chip, Container, Grid, Typography, Button } from '@mui/material';
 
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import CodeIcon from '@mui/icons-material/Code';
+import ArticleIcon from '@mui/icons-material/Article';
 
 import { formatNum } from '../helpers/coins';
 import Loading from '../components/Loading';
@@ -38,7 +41,7 @@ const Coin = () => {
             <Loading size="7rem"/>
           </Box>
         ) : (
-          <Grid container spacing={4} mb={5}>
+          <Grid container spacing={4} mb={5} mt={5}>
             <Grid item sm={5}>
               <Box sx={{ display: 'flex', alignItems: 'center' }} mb={1}>
                 <img src={coin.image.small} alt={coin.name} style={{marginRight: '1rem'}} />
@@ -71,19 +74,27 @@ const Coin = () => {
                   })}
                 />
               </Box>
+              <Box my={2} display="flex">
+                <Button variant="contained" href={coin.links.repos_url.github[0]} sx={{ mr: 1 }}>
+                  <CodeIcon /> <Typography component="span" mx={1}>Source code</Typography> <OpenInNewIcon />
+                </Button>
+                <Button variant="contained" href={coin.links.official_forum_url[0]}>
+                  <ArticleIcon /> <Typography component="span" mx={1}>Official Forum</Typography> <OpenInNewIcon />
+                </Button>
+              </Box>
             </Grid>
             <Grid item sm={7}>
               <CoinPriceData
                 name={coin.name}
                 symbol={coin.symbol}
-                currentPrice={formatNum(coin.market_data.current_price[currency.toLowerCase()])} 
+                currentPrice={formatNum(coin.market_data.current_price[currency.toLowerCase()])}
                 percentageChange={coin.market_data.price_change_percentage_24h}
               />
               <Box my={2}>
                 <Typography
                   fontSize="large"
                   lineHeight={1.6}
-                  dangerouslySetInnerHTML={{__html: `${coin.description.en.substring(0, 470)}...`}} 
+                  dangerouslySetInnerHTML={{__html: `${coin.description.en.substring(0, 470)}...`}}
                 />
               </Box>
             </Grid>
