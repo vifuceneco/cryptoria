@@ -5,6 +5,7 @@ import {
   Route,
 } from "react-router-dom";
 
+import Footer from './components/Footer';
 import Header from './components/Header';
 import Coin from './pages/Coin';
 import Home from './pages/Home';
@@ -22,6 +23,7 @@ function App() {
             <Route path="*" element={<Page404 />} />
           </Route>
         </Routes>
+        <Footer />
       </BrowserRouter>
     </>
   );

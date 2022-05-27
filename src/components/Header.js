@@ -1,6 +1,5 @@
 import React from 'react';
-import { AppBar, IconButton, Toolbar, Box, Typography } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
+import { AppBar, Toolbar, Box, Typography } from "@mui/material";
 import logo from "../logo.svg";
 import CurrencyChanger from './CurrencyChanger';
 import { Link } from 'react-router-dom';
@@ -8,16 +7,13 @@ import { Link } from 'react-router-dom';
 export default function Header() {
 
   return (
-    <AppBar position="static" color="dark" sx={{ mb: 2 }}>
+    <AppBar position="relative" color="dark" sx={{ mb: 2, zIndex: 20 }}>
       <Toolbar
         sx={{
           display: "flex",
           justifyContent: "space-between",
         }}
       >
-        <IconButton size="large" edge="start" color="inherit" aria-label="menu">
-          <MenuIcon />
-        </IconButton>
         <Link to={'/'} color="white">
           <Box display="flex" alignItems="center" color="white">
             <img
