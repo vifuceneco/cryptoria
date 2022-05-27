@@ -14,7 +14,7 @@ const SocialChips = ({reddit, twitter, facebook}) => {
       {(twitter.count && twitter.count > 0) 
         ? (
           <Link href={twitter.link}>
-            <Chip sx={{mr: 1}} label={
+            <Chip sx={{mr: 1, cursor: 'pointer'}} label={
               <Typography display="flex" component="span" alignItems="center">
                 <Twitter fontSize="small" sx={{mr: .5}}  /> {formatNum(twitter.count)}
               </Typography>
@@ -24,7 +24,7 @@ const SocialChips = ({reddit, twitter, facebook}) => {
       {(reddit.count && reddit.count > 0)
         ? (
           <Link href={reddit.link}>
-            <Chip sx={{mr: 1}} label={
+            <Chip sx={{mr: 1, cursor: 'pointer'}} label={
               <Typography display="flex" component="span" alignItems="center">
                 <Reddit fontSize="small" sx={{mr: .5}}  /> {formatNum(reddit.count)}
               </Typography>
@@ -34,7 +34,7 @@ const SocialChips = ({reddit, twitter, facebook}) => {
       { (facebook.count && facebook.count > 0) 
         ? (
           <Link href={facebook.link}>
-            <Chip label={
+            <Chip sx={{cursor: 'pointer'}} label={
               <Typography display="flex" component="span" alignItems="center">
                 <Facebook fontSize="small" sx={{mr: .5}}  /> {formatNum(facebook.count)}
               </Typography>

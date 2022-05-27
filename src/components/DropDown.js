@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
-import { MenuItem } from '@mui/material';
+import { Link, MenuItem } from '@mui/material';
 
 const DropDown = ({ options, label }) => {
   const [anchorEl, setAnchorEl] = useState(false);
@@ -24,7 +24,9 @@ const DropDown = ({ options, label }) => {
         open={anchorEl ? true : false}
         onClose={handleClose}
       >
-        { options.map((item, index) => <MenuItem key={index} href={item.href} onClick={handleClose}>{item.name || item.href}</MenuItem> )}
+        { options.map((item, index) => <MenuItem key={index} href={item.href} onClick={handleClose} component={Link}>
+          {item.name || item.href}
+        </MenuItem> )}
       </Menu>
     </div>
   );

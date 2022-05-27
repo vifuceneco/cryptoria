@@ -18,15 +18,15 @@ export default function Header() {
         <IconButton size="large" edge="start" color="inherit" aria-label="menu">
           <MenuIcon />
         </IconButton>
-        <Link to={'/'}>
-          <Box display="flex" alignItems="center">
+        <Link to={'/'} color="white">
+          <Box display="flex" alignItems="center" color="white">
             <img
               src={logo}
               alt="Cryptoria"
               width={50}
               style={{ marginRight: "13px" }}
               />
-            <Typography variant="h4" component="h1" color="white">
+            <Typography variant="h4" component="h1" color="common.white">
               Cryptoria
             </Typography>
           </Box>

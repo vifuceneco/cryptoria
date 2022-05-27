@@ -1,28 +1,43 @@
-import React, { useContext } from 'react';
-import { InputLabel, Select, FormControl, MenuItem } from "@mui/material";
+import React, { useContext, useState } from 'react';
+import { MenuItem, Button, Menu } from "@mui/material";
 import { CoinsContext } from '../contexts/CoinsContext';
 
+import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+
 const CurrencyChanger = () => {
-
   const { currency, changeCurrency } = useContext(CoinsContext);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
 
-  const handleChangeCurrency = ( e ) => {
-    changeCurrency(e.target.value);
-  }
+  const handleChangeCurrency = ( value ) => {
+    if (value) {
+      changeCurrency(value);
+    }
+    setAnchorEl(null);
+  };
 
   return (
-    <Select
-      color='primary'
-      labelId="currencyLabel"
-      id="currencySelect"
-      value={currency}
-      label="Currency"
-      onChange={handleChangeCurrency}
-    >
-      <MenuItem value='ARS'>ARS</MenuItem>
-      <MenuItem value='USD'>USD</MenuItem>
-      <MenuItem value='EUR'>EUR</MenuItem>
-    </Select>
+    <>
+      <Button variant="outlined" color="primary" onClick={handleClick}>
+        {currency}
+        {anchorEl
+          ? <ArrowDropUpIcon sx={{ mr: -1 }}/>
+          : <ArrowDropDownIcon sx={{ mr: -1 }}/>
+        }
+      </Button>
+      <Menu
+        anchorEl={anchorEl}
+        open={anchorEl ? true : false}
+        onClose={() => handleChangeCurrency()}
+      >
+        <MenuItem onClick={() => handleChangeCurrency('ARS')}>ARS</MenuItem>
+        <MenuItem onClick={() => handleChangeCurrency('USD')}>USD</MenuItem>
+        <MenuItem onClick={() => handleChangeCurrency('EUR')}>EUR</MenuItem>
+      </Menu>
+    </>
   );
 }
 
