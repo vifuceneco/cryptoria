@@ -1,24 +1,16 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Box, Button, Chip, Container, Grid, Typography } from '@mui/material';
 import { useParams } from "react-router-dom";
+import { Box, Chip, Container, Grid, Typography } from '@mui/material';
 
-import News from '../sections/News';
+
+import { formatNum } from '../helpers/coins';
 import Loading from '../components/Loading';
-
-import { coinGeckoCoin } from '../helpers/mock';
-import { CoinsContext } from '../contexts/CoinsContext';
-
-import LinkIcon from '@mui/icons-material/Link';
-import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import CodeIcon from '@mui/icons-material/Code';
-import ArticleIcon from '@mui/icons-material/Article';
-
-import MenuButton from '../components/MenuButton';
 import FavoriteButton from '../components/FavoriteButton';
 import SocialChips from '../components/SocialChips';
-import DropDown from '../components/DropDown';
-import { formatNum } from '../helpers/coins';
-import { Search } from '@mui/icons-material';
+import { CoinsContext } from '../contexts/CoinsContext';
+import CoinPriceData from '../sections/CoinPriceData';
+import News from '../sections/News';
+import CoinLinksData from '../sections/CoinLinksData';
 
 const Coin = () => {
   const { id } = useParams();
@@ -71,39 +63,29 @@ const Coin = () => {
                   }}
                 />
               </Box>
-              <Box>
-                <Box my={2} display="flex">
-                  <Button color="secondary" variant="contained" href="http://www.google.com" sx={{textTransform: 'none', mr: 2}}>
-                    {coin.links.homepage[0]}
-                    <OpenInNewIcon fontSize="small" sx={{ml: 1}} />
-                  </Button>
-                  <DropDown
-                    label={
-                      <>
-                        Explorer
-                        <Search sx={{ml: 1}}/>
-                      </>
-                    }
-                    options={coin.links.blockchain_site?.filter(item => item).map(url => {
-                      return { name: url, href: url };
-                    })}
-                  />
-                </Box>
-                <Button variant="contained" href="http://www.google.com">
-                  <CodeIcon /> <Typography component="span" mx={1}>Source code</Typography> <OpenInNewIcon />
-                </Button>
-                <Button variant="contained" href="http://www.google.com">
-                  <ArticleIcon /> <Typography component="span" mx={1}>Whitepaper</Typography> <OpenInNewIcon />
-                </Button>
+              <Box my={2} display="flex">
+                <CoinLinksData
+                  homepage={coin.links.homepage[0]}
+                  explorerLinks={coin.links.blockchain_site?.filter(item => item).map(url => {
+                    return { name: url, href: url };
+                  })}
+                />
               </Box>
             </Grid>
             <Grid item sm={7}>
-            <Typography component='span' variant='h6' mr={2} sx={{opacity: .6}} fontSize="small">
-              {coin.name} Price <span style={{textTransform: 'uppercase'}}>({coin.symbol})</span>
-            </Typography>
-            <Typography component='h2' variant='h3' fontWeight={700}>
-              ${formatNum(coin.market_data.current_price[currency.toLowerCase()])} {currency}
-            </Typography>
+              <CoinPriceData
+                name={coin.name}
+                symbol={coin.symbol}
+                currentPrice={formatNum(coin.market_data.current_price[currency.toLowerCase()])} 
+                percentageChange={coin.market_data.price_change_percentage_24h}
+              />
+              <Box my={2}>
+                <Typography
+                  fontSize="large"
+                  lineHeight={1.6}
+                  dangerouslySetInnerHTML={{__html: `${coin.description.en.substring(0, 470)}...`}} 
+                />
+              </Box>
             </Grid>
           </Grid>
         )
