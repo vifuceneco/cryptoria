@@ -27,6 +27,14 @@ export default function Header() {
             </Typography>
           </Box>
         </Link>
+        <Box display="flex">
+          <Link to={'about'}>
+            <Typography color="primary.main">About</Typography>
+          </Link>
+          <Link to={'contact'}>
+            <Typography color="primary.main">Contact</Typography>
+          </Link>
+        </Box>
         <CurrencyChanger />
       </Toolbar>
     </AppBar>
