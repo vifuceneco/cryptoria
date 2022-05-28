@@ -93,7 +93,7 @@ const Home = () => {
       <News />
       <CryptoCards />
       <Box mb={3}>
-        <Typography variant="h5" fontWeight="bold" component="h2">
+        <Typography variant="h4" component="h3" color="secondary">
           Cryptorias's Cryptocurrency Prices by Market Cap
         </Typography>
       </Box>

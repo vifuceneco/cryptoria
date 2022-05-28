@@ -41,7 +41,7 @@ const Coin = () => {
             <Loading size="7rem"/>
           </Box>
         ) : (
-          <Grid container spacing={4} mb={5} mt={5}>
+          <Grid container spacing={4} mb={5}>
             <Grid item sm={5}>
               <Box sx={{ display: 'flex', alignItems: 'center' }} mb={1}>
                 <img src={coin.image.small} alt={coin.name} style={{marginRight: '1rem'}} />

@@ -7,7 +7,7 @@ import logo from "../logo.svg";
 
 export default function Header() {
   return (
-    <AppBar position="relative" color="dark" sx={{ mb: 2, zIndex: 20 }}>
+    <AppBar position="relative" color="dark" sx={{ mb: 4, zIndex: 20 }}>
       <Toolbar
         sx={{
           display: "flex",
