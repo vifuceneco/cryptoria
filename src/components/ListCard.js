@@ -26,7 +26,7 @@ const ListCard = ({ Icon, title, list }) => {
 }
 
 ListCard.propTypes = {
-  Icon: PropTypes.oneOfType([ PropTypes.node, PropTypes.func ]),
+  Icon: PropTypes.oneOfType([ PropTypes.node, PropTypes.func, PropTypes.object ]),
   title: PropTypes.string,
   list: PropTypes.array,
 };
@@ -36,5 +36,5 @@ ListCard.defaultProps = {
   title: '',
   list: [],
 };
-  
+
 export default ListCard;

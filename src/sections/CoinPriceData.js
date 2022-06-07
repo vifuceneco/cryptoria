@@ -28,7 +28,7 @@ const CoinPriceData = ({ name, symbol, percentageChange, currentPrice }) => {
 CoinPriceData.propTypes = {
   name: PropTypes.string.isRequired,
   percentageChange: PropTypes.number.isRequired,
-  currentPrice: PropTypes.number.isRequired,
+  currentPrice: PropTypes.oneOfType([ PropTypes.number, PropTypes.string]).isRequired,
   symbol: PropTypes.string.isRequired,
 };
 
