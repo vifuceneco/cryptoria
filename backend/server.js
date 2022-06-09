@@ -4,8 +4,10 @@ const app = express();
 
 require('dotenv').config();
 
+BACKEND_PORT = process.env.PORT || 3001;
 
-app.listen(PORT, () => {
+
+app.listen(BACKEND_PORT, () => {
   console.log("Server levantado en 3001");
 });
 
