@@ -59,6 +59,7 @@ const CryptocurrencySchema = new mongoose.Schema({
     },
     market_cap_rank: Number,
     price_change_percentage_24h: Number,
+    circulating_supply: Number,
   },
   community_data: {
     facebook_likes: Number,

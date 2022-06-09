@@ -9,7 +9,7 @@ const CoinsProvider = ({ children }) => {
 
   const getCoins = () => {
     setLoading(true);
-    fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}`)
+    fetch(`/api/cryptocurrency?vs_currency=${currency}`)
       .then(response => response.json())
       .then(data => {
         setCoinsData(data);
