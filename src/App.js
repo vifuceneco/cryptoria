@@ -6,6 +6,7 @@ import Header from './components/Header';
 import About from './pages/About';
 import Coin from './pages/Coin';
 import Home from './pages/Home';
+import Login from './pages/Login';
 import Page404 from './pages/Page404';
 import PageEmpty from './pages/PageEmpty';
 
@@ -20,6 +21,7 @@ function App() {
             <Route path="coins/:id" element={<Coin />} />
             <Route path="about" element={<About />} />
             <Route path="contact" element={<PageEmpty />} />
+            <Route path="login" element={<Login />} />
             <Route path="*" element={<Page404 />} />
           </Route>
         </Routes>

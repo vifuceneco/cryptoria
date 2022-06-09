@@ -34,6 +34,9 @@ export default function Header() {
           <Link to={'contact'}>
             <Typography color="primary.main">Contact</Typography>
           </Link>
+          <Link to={'login'}>
+            <Typography color="primary.main" fontWeight="bold">Sign in</Typography>
+          </Link>
           <CurrencyChanger />
         </Box>
       </Toolbar>
