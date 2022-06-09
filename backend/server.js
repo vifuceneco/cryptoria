@@ -1,11 +1,15 @@
 const express = require("express");
 const mongoose = require('mongoose');
+const CryptocurrencyRoutes = require("./routes/cryptocurrency");
 const app = express();
 
 require('dotenv').config();
 
-BACKEND_PORT = process.env.PORT || 3001;
+ATLAS_USER = process.env.ATLAS_USER || '';
+ATLAS_PASS = process.env.ATLAS_PASS || '';
+BACKEND_PORT = process.env.BACKEND_PORT || 3001;
 
+app.use("/api/cryptocurrency", CryptocurrencyRoutes);
 
 app.listen(BACKEND_PORT, () => {
   console.log("Server levantado en 3001");
