@@ -8,23 +8,23 @@ import Loading from '../components/Loading';
 import { UserContext } from '../contexts/UserContext';
 
 const Login = () => {
-  const {login, loading, user} = useContext(UserContext);
+  const {login, loading, user, errorMessage} = useContext(UserContext);
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
 
   const handleSubmit = () => {
     if (!loading) {
-      login(email, password);
+      login({email, password});
     }
   }
   
   return (
     <Container>
       <Box my={8} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', minHeight: 'calc(100vh - 64px - 270px)', }}>
-        <Avatar sx={{ m: 1, bgcolor: loading ? 'gray.main': user ? 'primary.main' : 'secondary.main' }}>
-          {!loading && <LockOutlined fontSize="3rem" />}
+        <Avatar sx={{ m: 1, bgcolor: loading ? 'gray.main' : (user ? 'primary.main' : 'secondary.main') }}>
+          {!loading && !user && <LockOutlined fontSize="3rem" />}
           {loading && <Refresh size="3rem" className="rotating" /> }
-          {user && <Check size="3rem" className="rotating" /> }
+          {user && <Check size="3rem" /> }
         </Avatar>
         <Typography component="h1" variant="h4">
           Sign in
@@ -57,10 +57,11 @@ const Login = () => {
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
             onClick={handleSubmit}
-            disabled={loading || user}
+            disabled={loading || user !== null }
           >
             {loading ? <Loading /> : 'Sign In'}
           </Button>
+          { errorMessage && <Typography color="error">{errorMessage}</Typography> }
         </Box>
       </Box>
     </Container>

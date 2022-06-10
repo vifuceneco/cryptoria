@@ -5,11 +5,14 @@ export const UserContext = createContext();
 const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const login = ({ email, password }) => {
     setLoading(true);
-    fetch(`/api/login`, {
+    setErrorMessage(null);
+    fetch(`/api/users/login`, {
       method: 'POST',
+      headers : { "Content-Type" : "application/json" },
       body: JSON.stringify({
         email: email,
         password: password,
@@ -17,8 +20,10 @@ const UserProvider = ({ children }) => {
     })
       .then(response => response.json())
       .then(data => {
-        if (data.email) {
-          setUser(data);
+        if (!data.error && data.user) {
+          setUser(data.user);
+        } else {
+          setErrorMessage(data.message);
         }
       })
       .finally(() => setLoading(false));
@@ -26,7 +31,7 @@ const UserProvider = ({ children }) => {
 
   const logout = ({ email, password }) => {
     setLoading(true);
-    fetch(`/api/login`, {
+    fetch(`/api/logout`, {
       method: 'POST',
     })
       .then(response => response.json())
@@ -45,6 +50,7 @@ const UserProvider = ({ children }) => {
       login,
       loading,
       logout,
+      errorMessage,
     }}>
       {children}
     </UserContext.Provider>
