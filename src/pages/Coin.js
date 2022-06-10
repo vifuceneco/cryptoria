@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import { Box, Chip, Container, Grid, Typography, Button } from '@mui/material';
 
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
@@ -102,9 +102,7 @@ const Coin = () => {
       ) }
 
       { ! loading && Object.keys(coin).length === 0 && (
-        <Box sx={{minHeight: 450}} justifyContent="center" display="flex" flexDirection="column" alignItems="center">
-            <Typography component='h1' variant='h3' align="center">Nada por aquí</Typography>
-        </Box>
+        <Navigate to="*" />
       ) }
       <News />
     </Container>

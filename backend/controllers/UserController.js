@@ -3,9 +3,22 @@ const bcrypt = require("bcrypt");
 const validator = require ("validator");
 const jwt = require("jsonwebtoken");
 
+const secret = "SECRETKEY";
+
 const logout = (request, response) => {
   try {
-    response.send({status: true})
+    const { token } = request.body;
+    if (!token) {
+      return response.send({ error: true, message: "Bad logout" })
+    }
+
+    jwt.verify(token, secret, (err, decoded) => {
+      if (err) {
+        return response.send({ error: true, message: "Bad logout" })
+      }
+      return response.send({ error: false, logout: true })
+    });
+
   } catch (e) {
     response.status(500).send("Error")
   }
@@ -38,7 +51,7 @@ const login = (request, response) => {
               message: "Wrong password"
             }); 
           }
-          const token = jwt.sign({email, password}, "secret", {expiresIn: 60})
+          const token = jwt.sign({email, password}, secret, {expiresIn: 60})
   
           response.cookie("JWT_TOKEN", token)
   
@@ -49,6 +62,7 @@ const login = (request, response) => {
               name: user.name,
               last_name: user.last_name,
               username: user.username,
+              token: token,
             }
           });
         });

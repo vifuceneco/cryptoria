@@ -29,16 +29,20 @@ const UserProvider = ({ children }) => {
       .finally(() => setLoading(false));
   }
 
-  const logout = ({ email, password }) => {
+  const logout = () => {
     setLoading(true);
-    fetch(`/api/logout`, {
+    fetch(`/api/users/logout`, {
       method: 'POST',
+      headers : { "Content-Type" : "application/json" },
+      body: JSON.stringify({
+        token: user.token
+      })
     })
       .then(response => response.json())
       .then(data => {
-        if (data.status === true) {
+        if (!data.error && data.logout) {
           setUser(null);
-        }
+          window.location.replace("/");        }
       })
       .finally(() => setLoading(false));
   }

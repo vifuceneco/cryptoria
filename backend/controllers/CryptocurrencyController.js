@@ -33,7 +33,7 @@ const getCryptocurrency = ((request, response) => {
         return response.status(500).send(err);
       }
       if (!crypto) {
-        response.status(404).send({});
+        return response.status(404).send({});
       }
       response.send(crypto);
     });

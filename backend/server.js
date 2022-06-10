@@ -1,8 +1,10 @@
 const express = require("express");
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cookieParser = require("cookie-parser");
 const querystring = require('querystring');
 const CryptocurrencyRoutes = require("./routes/cryptocurrency");
+const UserRoutes = require("./routes/users");
 const app = express();
 
 require('dotenv').config();
@@ -15,6 +17,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use("/api/cryptocurrency", CryptocurrencyRoutes);
+app.use("/api/users", UserRoutes);
 
 app.listen(BACKEND_PORT, () => {
   console.log("Server levantado en 3001");
