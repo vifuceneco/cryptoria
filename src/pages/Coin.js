@@ -44,7 +44,9 @@ const Coin = () => {
         <Grid container spacing={4} mb={5}>
           <Grid item sm={5}>
             <Box sx={{ display: 'flex', alignItems: 'center' }} mb={1}>
-              <img src={coin.image.small} alt={coin.name} style={{marginRight: '1rem'}} />
+              {coin.image && coin.image.small && (
+                <img src={coin.image.small} alt={coin.name} style={{marginRight: '1rem'}} />
+              )}
               <Typography component='h1' variant='h3' mr={2}>{coin.name}</Typography>
               <Chip sx={{textTransform: 'uppercase'}} label={coin?.symbol.toUpperCase()} size="large" />
               <FavoriteButton />
@@ -88,13 +90,13 @@ const Coin = () => {
               name={coin.name}
               symbol={coin.symbol}
               currentPrice={formatNum(coin.market_data.current_price[currency.toLowerCase()])}
-              percentageChange={coin.market_data.price_change_percentage_24h}
+              percentageChange={coin.market_data.price_change_percentage_24h || 0}
             />
             <Box my={2}>
               <Typography
                 fontSize="large"
                 lineHeight={1.6}
-                dangerouslySetInnerHTML={{__html: `${coin.description.en.substring(0, 470)}...`}}
+                dangerouslySetInnerHTML={{__html: `${coin.description ? coin.description.en.substring(0, 470) : ''}...`}}
               />
             </Box>
           </Grid>

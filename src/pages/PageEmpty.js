@@ -15,6 +15,7 @@ const PageEmpty = () => {
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         mt: -4,
+        pb: 4,
         pt: 8
       }}
     >

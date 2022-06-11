@@ -17,6 +17,7 @@ const Page404 = () => {
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         mt: -4,
+        pb: 4,
         pt: 8
       }}
     >

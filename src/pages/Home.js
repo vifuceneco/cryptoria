@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { Box, Container, Typography, Link as MUILink } from '@mui/material';
+import { Box, Container, Typography, Link as MUILink, Button } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
+import Add from '@mui/icons-material/Add';
 
 import FavoriteButton from '../components/FavoriteButton';
 import News from '../sections/News';
@@ -93,8 +94,9 @@ const Home = () => {
       <News />
       <CryptoCards />
       <Box mb={3}>
-        <Typography variant="h4" component="h3" color="secondary">
+        <Typography variant="h4" component="h3" color="secondary" display="flex" justifyContent="space-between" alignItems="center">
           Cryptorias's Cryptocurrency Prices by Market Cap
+          <Button component={Link} variant="contained" to="/coins/create"><Add sx={{mr: 1}} />Create</Button>
         </Typography>
       </Box>
       <div

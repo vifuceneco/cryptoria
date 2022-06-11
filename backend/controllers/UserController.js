@@ -58,6 +58,7 @@ const login = (request, response) => {
           response.send({
             error: false,
             user: {
+              id: user._id,
               email: user.email,
               name: user.name,
               last_name: user.last_name,

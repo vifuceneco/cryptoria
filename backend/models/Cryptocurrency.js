@@ -13,13 +13,6 @@ const CryptocurrencySchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  market_data: {
-    current_price: {
-      ars: Number,
-      eur: Number,
-      usd: Number,
-    }
-  },
   description: {
     en: String,
     es: String,
@@ -70,7 +63,7 @@ const CryptocurrencySchema = new mongoose.Schema({
     reddit_accounts_active_48h: Number,
     telegram_channel_user_count: Number
   },
-  user_id: Number,
+  user_id: String,
 }, {
   timestamps : true
 });
