@@ -10,6 +10,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Page404 from './pages/Page404';
 import PageEmpty from './pages/PageEmpty';
+import Profile from './pages/Profile';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="coins/:id" element={<Coin />} />
             <Route path="coins/create" element={<CreateCoin />} />
+            <Route path="user/profile" element={<Profile />} />
             <Route path="about" element={<About />} />
             <Route path="contact" element={<PageEmpty />} />
             <Route path="login" element={<Login />} />

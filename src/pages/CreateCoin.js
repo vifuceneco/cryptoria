@@ -38,17 +38,17 @@ const CreateCoin = () => {
 
   useEffect(() => {
     if (!user) {
-      // return navigate("/");
+      return navigate("/");
     }
   }, []);
   
-  // if (!user) {
-  //   return (
-  //     <Box sx={{minHeight: 450}} justifyContent="center" display="flex" flexDirection="column" alignItems="center">
-  //       <Loading size="7rem"/>
-  //     </Box>
-  //   );
-  // }
+  if (!user) {
+    return (
+      <Box sx={{minHeight: 450}} justifyContent="center" display="flex" flexDirection="column" alignItems="center">
+        <Loading size="7rem" />
+      </Box>
+    );
+  }
 
   return (
     <Container>

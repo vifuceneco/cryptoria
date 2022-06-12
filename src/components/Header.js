@@ -47,10 +47,12 @@ const Header = () => {
             </Link>
           )}
           {user && (
-            <Typography color="primary.main" fontWeight="bold" display="flex" alignItems="center">
-              <Person sx={{mr: 2}} />
-              {user?.username || "Usuario"}
-            </Typography>
+            <Link to="/user/profile">
+              <Typography color="primary.main" fontWeight="bold" display="flex" alignItems="center">
+                  <Person sx={{mr: 1}} />
+                  {user?.username || "Usuario"}
+              </Typography>
+            </Link>
           )}
           <CurrencyChanger />
           {user && (
